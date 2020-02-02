@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, DrawerLayoutAndroid  } from 'react-native'
 import { Button } from 'react-native-elements'
 import { withFirebaseHOC } from '../config/Firebase'
 
@@ -13,9 +13,18 @@ class Home extends Component {
     }
   }
   render() {
+    var drawer = (
+      <View style={{flex: 1, backgroundColor: '#91c988'}}>
+        <Text style={{margin: 20, fontSize: 15, textAlign: 'left'}}>Your buttons here</Text>
+      </View>
+    )
     return (
       <View style={styles.container}>
-        <Text>Home</Text>
+        <DrawerLayoutAndroid renderNavigationView={() => drawer}>
+          <View>
+            <Text>Open up App.js to start working on your app!</Text>
+          </View>
+        </DrawerLayoutAndroid>
         <Button
           title='Signout'
           onPress={this.handleSignout}
