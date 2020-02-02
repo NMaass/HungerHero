@@ -120,9 +120,9 @@ class Signup extends Component {
                     name='name'
                     value={values.name}
                     onChangeText={handleChange('name')}
-                    placeholder='Enter your full name'
+                    placeholder='Organization'
                     iconName='md-person'
-                    iconColor='#2C384A'
+                    iconColor='#3C153B'
                     onBlur={handleBlur('name')}
                   />
                   <ErrorMessage errorValue={touched.name && errors.name} />
@@ -133,7 +133,7 @@ class Signup extends Component {
                     placeholder='Enter email'
                     autoCapitalize='none'
                     iconName='ios-mail'
-                    iconColor='#2C384A'
+                    iconColor='##3C153B'
                     onBlur={handleBlur('email')}
                   />
                   <ErrorMessage errorValue={touched.email && errors.email} />
@@ -143,7 +143,7 @@ class Signup extends Component {
                     onChangeText={handleChange('password')}
                     placeholder='Enter password'
                     iconName='ios-lock'
-                    iconColor='#2C384A'
+                    iconColor='#3C153B'
                     onBlur={handleBlur('password')}
                     secureTextEntry={passwordVisibility}
                     rightIcon={
@@ -159,7 +159,7 @@ class Signup extends Component {
                     onChangeText={handleChange('confirmPassword')}
                     placeholder='Confirm password'
                     iconName='ios-lock'
-                    iconColor='#2C384A'
+                    iconColor='#3C153B'
                     onBlur={handleBlur('confirmPassword')}
                     secureTextEntry={confirmPasswordVisibility}
                     rightIcon={
@@ -181,6 +181,16 @@ class Signup extends Component {
                     checkedIcon='check-box'
                     iconType='material'
                     uncheckedIcon='check-box-outline-blank'
+                    title='I am a vendor'
+                    checkedTitle='I am a vendor'
+                    checked={values.check}
+                    onPress={() => setFieldValue('check', !values.check)}
+                    />
+                  <CheckBox
+                    containerStyle={styles.checkBoxContainer}
+                    checkedIcon='check-box'
+                    iconType='material'
+                    uncheckedIcon='check-box-outline-blank'
                     title='Agree to terms and conditions'
                     checkedTitle='You agreed to our terms and conditions'
                     checked={values.check}
@@ -190,10 +200,13 @@ class Signup extends Component {
                     <FormButton
                       buttonType='outline'
                       onPress={handleSubmit}
-                      title='SIGNUP'
+                      title='Sign Up'
                       buttonColor='#F57C00'
                       disabled={!isValid || isSubmitting}
                       loading={isSubmitting}
+                      titleStyle={{
+                        fontFamily: 'Arial',
+                      }}
                     />
                   </View>
                   <ErrorMessage errorValue={errors.general} />
@@ -205,7 +218,8 @@ class Signup extends Component {
             title='Have an account? Login'
             onPress={this.goToLogin}
             titleStyle={{
-              color: '#039BE5'
+              color: '#f1f9ff',
+              fontFamily: 'Arial',
             }}
             type='clear'
           />

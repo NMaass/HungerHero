@@ -81,10 +81,10 @@ class Login extends Component {
                 name='email'
                 value={values.email}
                 onChangeText={handleChange('email')}
-                placeholder='Enter email'
+                placeholder='Email'
                 autoCapitalize='none'
                 iconName='ios-mail'
-                iconColor='#2C384A'
+                iconColor='#3c153b'
                 onBlur={handleBlur('email')}
               />
               <ErrorMessage errorValue={touched.email && errors.email} />
@@ -92,14 +92,14 @@ class Login extends Component {
                 name='password'
                 value={values.password}
                 onChangeText={handleChange('password')}
-                placeholder='Enter password'
+                placeholder='Password'
                 secureTextEntry={passwordVisibility}
                 iconName='ios-lock'
-                iconColor='#2C384A'
+                iconColor='#3c153b'
                 onBlur={handleBlur('password')}
                 rightIcon={
                   <TouchableOpacity onPress={this.handlePasswordVisibility}>
-                    <Ionicons name={rightIcon} size={28} color='grey' />
+                    <Ionicons name={rightIcon} size={28} color='#3C153B' />
                   </TouchableOpacity>
                 }
               />
@@ -109,7 +109,7 @@ class Login extends Component {
                   buttonType='outline'
                   onPress={handleSubmit}
                   title='LOGIN'
-                  buttonColor='#039BE5'
+                  buttonColor='#3c153b'
                   disabled={!isValid || isSubmitting}
                   loading={isSubmitting}
                 />
@@ -151,7 +151,12 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     margin: 25
-  }
+  },
+  bottomContainer: {
+    width: 428,
+    height: 498,
+    backgroundColor: '#f1f9ff',
+  },
 })
 
 export default withFirebaseHOC(Login)
